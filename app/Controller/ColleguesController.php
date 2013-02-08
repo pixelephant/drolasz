@@ -62,6 +62,7 @@ class ColleguesController extends AppController {
 		$this->set('body_id', 'collegues');
 		$params = $this->request->params;
 		$collegue = $this->Collegue->findById($params['id']);
+		$this->set('id', $params['id']);
 
 		$collegue['Collegue']['description_hun'] = $this->p2nl($collegue['Collegue']['description_hun']);
 		$collegue['Collegue']['description_eng'] = $this->p2nl($collegue['Collegue']['description_eng']);
