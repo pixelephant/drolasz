@@ -63,6 +63,9 @@ class ColleguesController extends AppController {
 		$params = $this->request->params;
 		$collegue = $this->Collegue->findById($params['id']);
 
+		$collegue['Collegue']['description_hun'] = $this->p2nl($collegue['Collegue']['description_hun']);
+		$collegue['Collegue']['description_eng'] = $this->p2nl($collegue['Collegue']['description_eng']);
+
 		$this->request->data = $collegue;
 	}
 
@@ -76,9 +79,22 @@ class ColleguesController extends AppController {
 				$this->Collegue->create();
 			}
 
-			if($this->request->data['Collegue']['image']['size'] == 0 || empty($this->request->data['Collegue']['image']['tmp_name'])){
+			if($this->request->data['Collegue']['image']['size'] != 0 && !empty($this->request->data['Collegue']['image']['tmp_name'])){
+				$name = $this->request->data['Collegue']['image']['name'];
+    			while(file_exists($this->webroot . 'img/' . $name)){
+    				$name = $name . strtotime("now");
+    			}
+    			print_r($this->request->data['Collegue']['image']);
+    			move_uploaded_file($this->request->data['Collegue']['image']['tmp_name'], $this->approot.'img/'.$name);
+    			$this->request->data['Collegue']['image'] = $name;
+			}else{
 				unset($this->request->data['Collegue']['image']);
 			}
+
+			print_r($this->request->data['Collegue']);
+
+			$this->request->data['Collegue']['description_hun'] = $this->nl2p($this->request->data['Collegue']['description_hun']);
+			$this->request->data['Collegue']['description_eng'] = $this->nl2p($this->request->data['Collegue']['description_eng']);
 
 			if($this->Collegue->save($this->request->data)){
 				$this->Session->setFlash(__('Sikeres mentés!'));
@@ -87,6 +103,24 @@ class ColleguesController extends AppController {
 			}
 		}
 		$this->redirect(array('action' => 'admin_edit', $this->Collegue->id));
+	}
+
+	private function nl2p($string){
+		$paragraphs = '';
+        foreach (explode("\n", $string) as $line)
+        {
+            if (trim($line))
+            {
+                $paragraphs .= '<p>' . $line . '</p>';
+            }
+        }
+        return $paragraphs;
+	}
+
+	private function p2nl($string){
+		$string = str_replace('<p>', '', $string);
+		$string = str_replace('</p>', "\n", $string);
+        return $string;
 	}
 
 }
