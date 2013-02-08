@@ -25,22 +25,15 @@
         <![endif]-->
 
         <header>
-            <div id="languages">
-                <span>
-                    <?php echo $this->Html->link('Magyar', '/' . $current_page_hun . $subpage, array('id' => 'hun', 'class' => ($this->Session->read('Config.language') == 'hun' ? 'selected' : ''))); ?>
-                    /
-                    <?php echo $this->Html->link('English', '/en/'. $current_page_eng . $subpage, array('id' => 'eng', 'class' => ($this->Session->read('Config.language') == 'eng' ? 'selected' : ''))); ?>
-                </span>
-            </div>
             <div id="head">
                 <?php echo $this->Html->link($this->Html->image('logo.png', array('alt' => 'Olasz Balázs Ügyvédi Iroda')), '/', array('escape' => false, 'id' => 'logo')); ?>
                 <nav id="main-nav">
                     <ul>
-                        <li class="<?php echo $body_id == 'home' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('home'), '/' . $lang); ?></li>
-                        <li class="<?php echo $body_id == 'specialization' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('specialization'), '/' . $lang . __('specialization_url')); ?></li>
-                        <li class="<?php echo $body_id == 'collegues' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('collegues'), '/' . $lang . __('collegues_url')); ?></li>
-                        <li class="<?php echo $body_id == 'contact' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('contact'), '/' . $lang . __('contact_url')); ?></li>
-                        <li class="<?php echo $body_id == 'documents' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('documents'), '/' . $lang . __('documents_url')); ?></li>
+                        <li><a href="#">Főoldal</a></li>
+                        <li><a href="#">Szakterület</a></li>
+                        <li class="active"><a href="#">Kollégák</a></li>
+                        <li><a href="#">Kapcsolat</a></li>
+                        <li><a href="#">Dokumentumok</a></li>
                     </ul>
                 </nav>
             </div>
@@ -49,7 +42,7 @@
             <?php echo $this->fetch('content'); ?>
         </section>
         <footer id="main-footer">
-            <p>Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link(__('privacy'), '/' . $lang . __('privacy_url')) ?> <?php echo $this->Html->link(__('policies'), '/' . $lang . __('policies_url')) ?></p>
+            <p>Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link('Adatkezelés', '#'); ?> <?php echo $this->Html->link('Szabályzat', '#'); ?></p>
         </footer>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
