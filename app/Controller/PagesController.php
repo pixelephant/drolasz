@@ -57,6 +57,8 @@ class PagesController extends AppController {
 		$hun_url['szakterulet'] = 'specialization';
 		$hun_url['kapcsolat'] = 'contact';
 		$hun_url['dokumentumok'] = 'documents';
+		$hun_url['adatkezeles'] = 'privacy';
+		$hun_url['szabalyzat'] = 'policies';
 
 		$path = func_get_args();
 
@@ -66,13 +68,13 @@ class PagesController extends AppController {
 		}
 		$page = $subpage = $title_for_layout = null;
 
-		$lang = '';
 		if($path[0] == 'en'){
 			array_shift($path);
 			$lang = 'en/';
-			$this->set('current_page_eng', $path[0]);
 			$this->set('current_page_hun', array_search($path[0], $hun_url));
+			$this->set('current_page_eng', $path[0]);
 		}else{
+			$lang = '';
 			$this->set('current_page_hun', $path[0]);
 			if(isset($hun_url[$path[0]])){
 				$path[0] = $hun_url[$path[0]];
@@ -86,21 +88,31 @@ class PagesController extends AppController {
 				$this->set('collegues', $this->Collegue->find('all', array('order' => 'position')));
 			}
 		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
 
 		if((!file_exists(APP . 'View/Pages/' . $page . '.ctp')) && ($page != 'collegues')){
 			throw new NotFoundException('');
 		}
 
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
+		if (!empty($path[1])) {
+			$subpage = '/' . $path[1];
+			$collegue = $this->Collegue->findBySlug($path[1]);
+			if(empty($collegue)){
+				throw new NotFoundException('');
+			}else{
+				$this->set('collegue', $collegue);
+				$collegue = true;
+			}
+		}
+
+		$this->set(compact('page', 'subpage'));
+		$this->set('title_for_layout', __($page));
 		$this->set('body_id', $path[0]);
 		$this->set('lang', $lang);
 
-		$this->render(implode('/', $path));
+		if(isset($collegue)){
+			$this->render('collegue');
+		}else{
+			$this->render(implode('/', $path));
+		}
 	}
 }

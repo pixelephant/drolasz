@@ -27,9 +27,9 @@
         <header>
             <div id="languages">
                 <span>
-                    <?php echo $this->Html->link('Magyar', '/' . $current_page_hun, array('id' => 'hun', 'class' => ($this->Session->read('Config.language') == 'hun' ? 'selected' : ''))); ?>
+                    <?php echo $this->Html->link('Magyar', '/' . $current_page_hun . $subpage, array('id' => 'hun', 'class' => ($this->Session->read('Config.language') == 'hun' ? 'selected' : ''))); ?>
                     /
-                    <?php echo $this->Html->link('English', '/en/'. $current_page_eng, array('id' => 'eng', 'class' => ($this->Session->read('Config.language') == 'eng' ? 'selected' : ''))); ?>
+                    <?php echo $this->Html->link('English', '/en/'. $current_page_eng . $subpage, array('id' => 'eng', 'class' => ($this->Session->read('Config.language') == 'eng' ? 'selected' : ''))); ?>
                 </span>
             </div>
             <div id="head">
@@ -49,7 +49,7 @@
             <?php echo $this->fetch('content'); ?>
         </section>
         <footer id="main-footer">
-            <p>Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link('Adatkezelés', '/privacy') ?> <?php echo $this->Html->link('Szabályzat', '/policies') ?></p>
+            <p>Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link(__('privacy'), '/' . $lang . __('privacy_url')) ?> <?php echo $this->Html->link(__('policies'), '/' . $lang . __('policies_url')) ?></p>
         </footer>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

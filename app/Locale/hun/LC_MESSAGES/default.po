@@ -30,6 +30,12 @@ msgstr "Kapcsolat"
 msgid "documents"
 msgstr "Anyagok"
 
+msgid "privacy"
+msgstr "Adatkezelés"
+
+msgid "policies"
+msgstr "Szabályzat"
+
 #Contact
 
 msgid "phone"
@@ -57,3 +63,9 @@ msgstr "kapcsolat"
 
 msgid "documents_url"
 msgstr "dokumentumok"
+
+msgid "privacy_url"
+msgstr "adatkezeles"
+
+msgid "policies_url"
+msgstr "szabalyzat"

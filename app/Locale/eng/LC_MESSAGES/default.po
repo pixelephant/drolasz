@@ -30,6 +30,12 @@ msgstr "Contact"
 msgid "documents"
 msgstr "Documents"
 
+msgid "privacy"
+msgstr "Privacy"
+
+msgid "policies"
+msgstr "Policies"
+
 #Contact
 
 msgid "phone"
@@ -57,3 +63,9 @@ msgstr "contact"
 
 msgid "documents_url"
 msgstr "documents"
+
+msgid "privacy_url"
+msgstr "privacy"
+
+msgid "policies_url"
+msgstr "policies"
