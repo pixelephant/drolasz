@@ -60,6 +60,12 @@ class PagesController extends AppController {
 		}
 		$page = $subpage = $title_for_layout = null;
 
+		$lang = '';
+		if($path[0] == 'en'){
+			array_shift($path);
+			$lang = 'en/';
+		}
+
 		if (!empty($path[0])) {
 			$page = $path[0];
 		}
@@ -70,6 +76,8 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->render(implode('/', $path));
+		$this->set('body_id', $page);
+		$this->set('lang', $lang);
+		$this->render(implode('/', $path) . '_' . $this->Session->read('Config.language'));
 	}
 }

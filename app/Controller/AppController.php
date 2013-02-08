@@ -32,4 +32,16 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public function beforeFilter(){			
+			parent::beforeFilter();
+
+			if($this->params['pass'][0] == 'en'){
+				$this->Session->write('Config.language', 'eng');
+			}else{
+				$this->Session->write('Config.language', 'hun');
+			}
+			Configure::write('Config.language', $this->Session->read('Config.language'));
+		}
+
 }
