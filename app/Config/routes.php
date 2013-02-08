@@ -31,6 +31,8 @@
  */
 	Router::connect('/admin', array('controller' => 'collegues', 'action' => 'index', 'admin' => true));
 	Router::connect('/admin/collegues/delete/:id', array('controller' => 'collegues', 'action' => 'delete', 'admin' => true));
+	Router::connect('/admin/collegues/edit/:id', array('controller' => 'collegues', 'action' => 'edit', 'admin' => true));
+	Router::connect('/admin/collegues/add', array('controller' => 'collegues', 'action' => 'add', 'admin' => true));
 	Router::connect('/en', array('controller' => 'pages', 'action' => 'display', 'en', 'home'));
 	Router::connect('/en/*', array('controller' => 'pages', 'action' => 'display', 'en'));
 	Router::connect('/*', array('controller' => 'pages', 'action' => 'display'));

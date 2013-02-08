@@ -53,10 +53,40 @@ class ColleguesController extends AppController {
 
 	public function admin_delete(){
 		$params = $this->request->params;
-		print_r($params);
 		$collegue = $this->Collegue->find('first', array('conditions' => array('Collegue.id' => $params['id'])));
 		$this->Collegue->delete($params['id']);
 		$this->redirect('/admin');
+	}
+
+	function admin_edit(){
+		$this->set('body_id', 'collegues');
+		$params = $this->request->params;
+		$collegue = $this->Collegue->findById($params['id']);
+
+		$this->request->data = $collegue;
+	}
+
+	function admin_add(){
+		$this->set('body_id', 'collegues');
+
+		if(!empty($this->request->data['Collegue'])){
+			if(isset($this->request->data['Collegues']['id'])){
+				$this->Collegue->findById($this->request->data['Collegue']['id']);
+			}else{
+				$this->Collegue->create();
+			}
+
+			if($this->request->data['Collegue']['image']['size'] == 0 || empty($this->request->data['Collegue']['image']['tmp_name'])){
+				unset($this->request->data['Collegue']['image']);
+			}
+
+			if($this->Collegue->save($this->request->data)){
+				$this->Session->setFlash(__('Sikeres mentés!'));
+			}else{
+				$this->Session->setFlash(__('Sikertelen mentés!'));
+			}
+		}
+		$this->redirect(array('action' => 'admin_edit', $this->Collegue->id));
 	}
 
 }
