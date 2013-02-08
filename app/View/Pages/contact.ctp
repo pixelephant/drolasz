@@ -4,9 +4,9 @@
     <h4>1053 Budapest, Papnövelde utca 8.</h4>
     
     <div>
-        <p>Telefon: <a href="tel:+3614111903">+36 1 4111 903</a></p>
-        <p>Fax: +36 1 4111 904</p>
-        <p>Mobil: <a href="tel:+36203417046">+36 20 341 70 46</a></p>
-        <p>Email: <a href="mailto:titkarsag@drolasz.hu">titkarsag@drolasz.hu</a></p>
+        <p><?php echo __('telephone'); ?>: <a href="tel:+3614111903">+36 1 4111 903</a></p>
+        <p><?php echo __('fax'); ?>: +36 1 4111 904</p>
+        <p><?php echo __('mobile'); ?>: <a href="tel:+36203417046">+36 20 341 70 46</a></p>
+        <p><?php echo __('email'); ?>: <a href="mailto:titkarsag@drolasz.hu">titkarsag@drolasz.hu</a></p>
     </div>
 </div>

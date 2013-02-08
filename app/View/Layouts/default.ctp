@@ -27,20 +27,20 @@
         <header>
             <div id="languages">
                 <span>
-                    <?php echo $this->Html->link('Magyar', '/', array('id' => 'hun', 'class' => ($this->Session->read('Config.language') == 'hun' ? 'selected' : ''))); ?>
+                    <?php echo $this->Html->link('Magyar', '/' . $current_page_hun, array('id' => 'hun', 'class' => ($this->Session->read('Config.language') == 'hun' ? 'selected' : ''))); ?>
                     /
-                    <?php echo $this->Html->link('English', '/en', array('id' => 'eng', 'class' => ($this->Session->read('Config.language') == 'eng' ? 'selected' : ''))); ?>
+                    <?php echo $this->Html->link('English', '/en/'. $current_page_eng, array('id' => 'eng', 'class' => ($this->Session->read('Config.language') == 'eng' ? 'selected' : ''))); ?>
                 </span>
             </div>
             <div id="head">
                 <?php echo $this->Html->link($this->Html->image('logo.png', array('alt' => 'Olasz Balázs Ügyvédi Iroda')), '/', array('escape' => false, 'id' => 'logo')); ?>
                 <nav id="main-nav">
                     <ul>
-                        <li class="<?php echo $body_id == 'home' ? 'active' : ''; ?>"><?php echo $this->Html->link('Főoldal', '/' . $lang); ?></li>
-                        <li class="<?php echo $body_id == 'specialization' ? 'active' : ''; ?>"><?php echo $this->Html->link('Szakterület', '/' . $lang . 'specialization'); ?></li>
-                        <li class="<?php echo $body_id == 'collegues' ? 'active' : ''; ?>"><?php echo $this->Html->link('Kollégák', '/' . $lang . 'collegues'); ?></li>
-                        <li class="<?php echo $body_id == 'contact' ? 'active' : ''; ?>"><?php echo $this->Html->link('Kapcsolat', '/' . $lang . 'contact'); ?></li>
-                        <li class="<?php echo $body_id == 'documents' ? 'active' : ''; ?>"><?php echo $this->Html->link('Anyagok', '/' . $lang . 'documents'); ?></li>
+                        <li class="<?php echo $body_id == 'home' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('home'), '/' . $lang); ?></li>
+                        <li class="<?php echo $body_id == 'specialization' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('specialization'), '/' . $lang . __('specialization_url')); ?></li>
+                        <li class="<?php echo $body_id == 'collegues' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('collegues'), '/' . $lang . __('collegues_url')); ?></li>
+                        <li class="<?php echo $body_id == 'contact' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('contact'), '/' . $lang . __('contact_url')); ?></li>
+                        <li class="<?php echo $body_id == 'documents' ? 'active' : ''; ?>"><?php echo $this->Html->link(__('documents'), '/' . $lang . __('documents_url')); ?></li>
                     </ul>
                 </nav>
             </div>

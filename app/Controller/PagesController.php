@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Collegue');
 
 /**
  * Displays a view
@@ -52,6 +52,12 @@ class PagesController extends AppController {
  * @return void
  */
 	public function display() {
+
+		$hun_url['kollegak'] = 'collegues';
+		$hun_url['szakterulet'] = 'specialization';
+		$hun_url['kapcsolat'] = 'contact';
+		$hun_url['dokumentumok'] = 'documents';
+
 		$path = func_get_args();
 
 		$count = count($path);
@@ -64,10 +70,21 @@ class PagesController extends AppController {
 		if($path[0] == 'en'){
 			array_shift($path);
 			$lang = 'en/';
+			$this->set('current_page_eng', $path[0]);
+			$this->set('current_page_hun', array_search($path[0], $hun_url));
+		}else{
+			$this->set('current_page_hun', $path[0]);
+			if(isset($hun_url[$path[0]])){
+				$path[0] = $hun_url[$path[0]];
+			}
+			$this->set('current_page_eng', $path[0]);
 		}
 
 		if (!empty($path[0])) {
 			$page = $path[0];
+			if($page == 'collegues'){
+				$this->set('collegues', $this->Collegue->find('all', array('order' => 'position')));
+			}
 		}
 		if (!empty($path[1])) {
 			$subpage = $path[1];
@@ -75,9 +92,15 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
+
+		if((!file_exists(APP . 'View/Pages/' . $page . '.ctp')) && ($page != 'collegues')){
+			throw new NotFoundException('');
+		}
+
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->set('body_id', $page);
+		$this->set('body_id', $path[0]);
 		$this->set('lang', $lang);
-		$this->render(implode('/', $path) . '_' . $this->Session->read('Config.language'));
+
+		$this->render(implode('/', $path));
 	}
 }

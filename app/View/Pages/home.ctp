@@ -1,0 +1,1 @@
+<?php echo $this->element('home_' . $this->Session->read('Config.language')); ?>
