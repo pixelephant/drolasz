@@ -38,7 +38,7 @@ msgstr "Policies"
 
 #Contact
 
-msgid "phone"
+msgid "telephone"
 msgstr "Telephone"
 
 msgid "fax"

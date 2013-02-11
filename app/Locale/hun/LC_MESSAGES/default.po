@@ -38,7 +38,7 @@ msgstr "Szabályzat"
 
 #Contact
 
-msgid "phone"
+msgid "telephone"
 msgstr "Telefon"
 
 msgid "fax"
