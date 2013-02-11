@@ -1,3 +1,5 @@
+<?php $this->Html->css('admin', null, array('inline' => false)); ?>
+
 <?php
 	echo $this->Form->create('Collegue', array('url' => '/admin/collegues/add', 'method' => 'post', 'type' => 'file'));
 
@@ -15,5 +17,5 @@
 	if(!empty($this->request->data['Collegue']['image'])){
 		echo $this->Html->image($this->request->data['Collegue']['image']);
 	}
-	echo $this->Form->end(__d('cake', __('Submit')));
+	echo $this->Form->end(__d('cake', __('Mentés')));
 ?>

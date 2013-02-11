@@ -1,0 +1,58 @@
+form{
+	width: 100%;
+	margin-top:40px;
+}
+
+form label{
+	margin-right: 15px;
+	float:left;
+	width: 30%;
+}
+
+form div.input{
+	overflow: hidden;
+	margin: 20px 0;
+
+}
+
+form input[type="text"]{}
+
+a.admin{
+	width: auto !important;
+	display: block !important;
+	margin: 5px !important;
+	float:none !important;
+	color:blue !important;
+	text-decoration: underline !important;
+	-webkit-transition: none !important;  /* Chrome 1-25, Safari 3.2+ */
+    -moz-transition: none !important;  /* Firefox 4-15 */
+    -o-transition: none !important;  /* Opera 10.50–12.00 */
+    transition: none !important;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+}
+
+.admin-a{
+	color:#12233c;
+width: auto;
+text-decoration: none;
+margin: 2em 0;
+display: block;
+text-align: center;
+
+}
+
+
+@media only screen and (min-width: 31.25em) {
+
+    .admin-a{
+        width: 50%;
+        float: left;
+    }
+
+}
+
+@media only screen and (min-width: 37.5em) {
+	.admin-a{
+        width: 33.3333%;
+        float: left;
+    }
+}

@@ -319,6 +319,8 @@ text-align: center;
     transition: all 0.3s ease-in-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
 
+
+
 .no-touch #collegues-list a:hover,#collegues-list a:focus{
     -webkit-transform: scale(1.05); 
      -moz-transform: scale(1.05);  
