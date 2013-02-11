@@ -30,6 +30,22 @@ a.admin{
     transition: none !important;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
 
+a.admin.new{
+	margin: 20px 0 0 0 !important;
+	display: block !important;
+	float: left !important;
+	color:white !important;
+	background: #12233c;
+	padding: 10px;
+	clear:right;
+	text-decoration: none !important;
+	border-radius: 4px;
+}
+
+#collegues-list{
+	clear:both;
+}
+
 .admin-a{
 	color:#12233c;
 width: auto;
