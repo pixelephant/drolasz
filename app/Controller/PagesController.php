@@ -82,6 +82,8 @@ class PagesController extends AppController {
 			$this->set('current_page_eng', $path[0]);
 		}
 
+		$body_id = $path[0];
+
 		if (!empty($path[0])) {
 			$page = $path[0];
 			if($page == 'collegues'){
@@ -107,7 +109,7 @@ class PagesController extends AppController {
 
 		$this->set(compact('page', 'subpage'));
 		$this->set('title_for_layout', __($page));
-		$this->set('body_id', $path[0]);
+		$this->set('body_id', $body_id);
 		$this->set('lang', $lang);
 
 		if(isset($collegue)){
