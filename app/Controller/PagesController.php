@@ -96,6 +96,7 @@ class PagesController extends AppController {
 		if (!empty($path[1])) {
 			$subpage = '/' . $path[1];
 			$collegue = $this->Collegue->findBySlug($path[1]);
+			$body_id = 'collegue';
 			if(empty($collegue)){
 				throw new NotFoundException('');
 			}else{
