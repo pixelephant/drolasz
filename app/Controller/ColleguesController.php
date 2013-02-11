@@ -81,10 +81,20 @@ class ColleguesController extends AppController {
 		$this->set('body_id', 'collegues');
 
 		if(!empty($this->request->data['Collegue'])){
-			if(isset($this->request->data['Collegues']['id'])){
-				$this->Collegue->findById($this->request->data['Collegue']['id']);
+			if(isset($this->request->data['Collegue']['id'])){
+				$collegue = $this->Collegue->findById($this->request->data['Collegue']['id']);
+				$this->request->data['Collegue']['slug'] = $collegue['Collegue']['slug'];
 			}else{
 				$this->Collegue->create();
+				$this->request->data['Collegue']['slug'] = $this->slugify($this->request->data['Collegue']['name_hun']);
+				$count = $this->Collegue->find('count', array('conditions' => array('Collegue.slug' => $this->request->data['Collegue']['slug'], 'not' => array('Collegue.id' => $this->Collegue->id))));
+
+				$i = 1;
+				while($count > 0){
+					$this->request->data['Collegue']['slug'] = $this->slugify($this->request->data['Collegue']['name_hun'] . '-' . $i);
+					$count = $this->Collegue->find('count', array('conditions' => array('Collegue.slug' => $this->request->data['Collegue']['slug'], 'not' => array('Collegue.id' => $this->Collegue->id))));
+					$i++;
+				}
 			}
 
 			if($this->request->data['Collegue']['image']['size'] != 0 && !empty($this->request->data['Collegue']['image']['tmp_name'])){
@@ -100,7 +110,6 @@ class ColleguesController extends AppController {
 
 			$this->request->data['Collegue']['description_hun'] = $this->nl2p($this->request->data['Collegue']['description_hun']);
 			$this->request->data['Collegue']['description_eng'] = $this->nl2p($this->request->data['Collegue']['description_eng']);
-			$this->request->data['Collegue']['slug'] = $this->slugify($this->request->data['Collegue']['name_hun']);
 
 			if($this->Collegue->save($this->request->data)){
 				$this->Session->setFlash(__('Sikeres mentés!'));
