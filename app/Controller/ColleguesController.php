@@ -60,14 +60,21 @@ class ColleguesController extends AppController {
 
 	function admin_edit(){
 		$this->set('body_id', 'collegues');
+
 		$params = $this->request->params;
-		$collegue = $this->Collegue->findById($params['id']);
-		$this->set('id', $params['id']);
 
-		$collegue['Collegue']['description_hun'] = $this->p2nl($collegue['Collegue']['description_hun']);
-		$collegue['Collegue']['description_eng'] = $this->p2nl($collegue['Collegue']['description_eng']);
+		if(isset($params['id'])){
+			$collegue = $this->Collegue->findById($params['id']);
+			if(empty($collegue)){
+				$this->redirect('/admin');
+			}
+			$this->set('id', $params['id']);
 
-		$this->request->data = $collegue;
+			$collegue['Collegue']['description_hun'] = $this->p2nl($collegue['Collegue']['description_hun']);
+			$collegue['Collegue']['description_eng'] = $this->p2nl($collegue['Collegue']['description_eng']);
+
+			$this->request->data = $collegue;
+		}
 	}
 
 	function admin_add(){
@@ -85,14 +92,11 @@ class ColleguesController extends AppController {
     			while(file_exists($this->webroot . 'img/' . $name)){
     				$name = $name . strtotime("now");
     			}
-    			print_r($this->request->data['Collegue']['image']);
     			move_uploaded_file($this->request->data['Collegue']['image']['tmp_name'], $this->approot.'img/'.$name);
     			$this->request->data['Collegue']['image'] = $name;
 			}else{
 				unset($this->request->data['Collegue']['image']);
 			}
-
-			print_r($this->request->data['Collegue']);
 
 			$this->request->data['Collegue']['description_hun'] = $this->nl2p($this->request->data['Collegue']['description_hun']);
 			$this->request->data['Collegue']['description_eng'] = $this->nl2p($this->request->data['Collegue']['description_eng']);
