@@ -100,6 +100,7 @@ class ColleguesController extends AppController {
 
 			$this->request->data['Collegue']['description_hun'] = $this->nl2p($this->request->data['Collegue']['description_hun']);
 			$this->request->data['Collegue']['description_eng'] = $this->nl2p($this->request->data['Collegue']['description_eng']);
+			$this->request->data['Collegue']['slug'] = $this->slugify($this->request->data['Collegue']['name_hun']);
 
 			if($this->Collegue->save($this->request->data)){
 				$this->Session->setFlash(__('Sikeres mentés!'));
@@ -127,5 +128,26 @@ class ColleguesController extends AppController {
 		$string = str_replace('</p>', "\n", $string);
         return $string;
 	}
+
+	private function slugify($text){
+		// replace accent characters
+		$accent = array("á","é","í","ó","ö","ő","ü","ű","ú", "Á", "É","Í","Ó","Ö", "Ő","Ü","Ű","Ú");
+		$non_accent = array("a","e","i","o","o","o","u","u","u", "a","e","i","o","o","o","u","u","u");
+		$text = str_replace($accent, $non_accent, $text);
+		// lowercase
+		$text = strtolower($text);
+		// replace non letter or digits by -
+		$text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+		// trim
+		$text = trim($text, '-');
+		// transliterate
+		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+		// remove unwanted characters
+		$text = preg_replace('~[^-\w]+~', '', $text);
+		if (empty($text)){
+			return 'n-a';
+		}
+		return strtolower($text);
+}
 
 }
