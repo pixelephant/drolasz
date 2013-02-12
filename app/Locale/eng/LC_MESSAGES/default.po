@@ -31,10 +31,7 @@ msgid "documents"
 msgstr "Documents"
 
 msgid "privacy"
-msgstr "Privacy"
-
-msgid "policies"
-msgstr "Policies"
+msgstr "Privacy Policy"
 
 #Contact
 

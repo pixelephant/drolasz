@@ -31,10 +31,7 @@ msgid "documents"
 msgstr "Anyagok"
 
 msgid "privacy"
-msgstr "Adatkezelés"
-
-msgid "policies"
-msgstr "Szabályzat"
+msgstr "Adatkezelési Szabályzat"
 
 #Contact
 
