@@ -29,6 +29,8 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
+	Router::connect('/users/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
+	Router::connect('/users/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'collegues', 'action' => 'index', 'admin' => true));
 	Router::connect('/admin/collegues/delete/:id', array('controller' => 'collegues', 'action' => 'delete', 'admin' => true));
 	Router::connect('/admin/collegues/edit/:id', array('controller' => 'collegues', 'action' => 'edit', 'admin' => true));

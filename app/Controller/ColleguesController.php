@@ -157,6 +157,6 @@ class ColleguesController extends AppController {
 			return 'n-a';
 		}
 		return strtolower($text);
-}
+	}
 
 }
