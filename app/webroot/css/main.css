@@ -125,6 +125,11 @@ textarea {
 }
 
 
+.team-img{
+    max-width: 100%;
+    margin-top:20px;
+}
+
 html{
     position: relative;
     min-height: 100%;
@@ -162,8 +167,12 @@ header a{
     background: url(../img/header_specialization.png) no-repeat ;
 }
 
-#collegues header,#collegue header{
+#collegues header{
     background: url(../img/header_collegues.png) no-repeat ;
+}
+
+#collegue header{
+    background: url(../img/header_collegue.png) no-repeat ;
 }
 
 #contact header{
