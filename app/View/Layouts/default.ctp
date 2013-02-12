@@ -49,7 +49,7 @@
             <?php echo $this->fetch('content'); ?>
         </section>
         <footer id="main-footer">
-            <p>Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link(__('privacy'), '/' . $lang . __('privacy_url')) ?> <?php echo $this->Html->link(__('policies'), '/' . $lang . __('policies_url')) ?></p>
+            <p>Dr. Olasz Balázs Ügyvédi Iroda &copy; <?php echo date('Y'); ?> | <?php echo $this->Html->link(__('privacy'), '/' . $lang . __('privacy_url')) ?> <?php echo $this->Html->link(__('policies'), '/' . $lang . __('policies_url')) ?></p>
         </footer>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
