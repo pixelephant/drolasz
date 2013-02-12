@@ -1,4 +1,8 @@
-<?php echo $this->Html->image($collegue['Collegue']['image'], array('alt' => $collegue['Collegue']['name_' . $this->Session->read('Config.language')])) ?>
+<?php 
+	if(!empty($collegue['Collegue']['image'])){
+		echo $this->Html->image($collegue['Collegue']['image'], array('alt' => $collegue['Collegue']['name_' . $this->Session->read('Config.language')]));
+	}
+?>
 
 <div class="cv">
 	<h3><?php echo $collegue['Collegue']['name_' . $this->Session->read('Config.language')]; ?></h3>
