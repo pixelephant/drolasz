@@ -29,7 +29,7 @@
                 <?php echo $this->Html->link($this->Html->image('logo.png', array('alt' => 'Olasz Balázs Ügyvédi Iroda')), '/', array('escape' => false, 'id' => 'logo')); ?>
                 <nav id="main-nav">
                     <ul>
-                        <li><a href="#">Főoldal</a></li>
+                        <li><?php echo $this->Html->link('Kilépés', '/users/logout'); ?></li>
                         <li><a href="#">Szakterület</a></li>
                         <li class="active"><?php echo $this->Html->link('Kollégák', '/admin'); ?></li>
                         <li><a href="#">Kapcsolat</a></li>

@@ -1,6 +1,5 @@
 <?php $this->Html->css('admin', null, array('inline' => false)); ?>
 <?php echo $this->Html->link('Új kolléga', '/admin/collegues/edit', array('class' => array('admin','new'))); ?>
-<?php echo $this->Html->link('Kilépés', '/users/logout', array('class' => array('admin','new'))); ?>
 <div id="collegues-list">
 	<?php foreach($collegues as $collegue){ ?>
 		<?php 
