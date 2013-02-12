@@ -7,13 +7,13 @@
 		echo $this->Form->input('id', array('type' => 'hidden', 'value' => $id));		
 	}
 
-	echo $this->Form->input('name_hun');
-	echo $this->Form->input('name_eng');
-	echo $this->Form->input('title_hun');
-	echo $this->Form->input('title_eng');
-	echo $this->Form->input('description_hun');
-	echo $this->Form->input('description_eng');
-	echo $this->Form->input('image', array('type' => 'file'));
+	echo $this->Form->input('name_hun', array('label' => 'Név magyarul'));
+	echo $this->Form->input('name_eng', array('label' => 'Név angolul'));
+	echo $this->Form->input('title_hun', array('label' => 'Titulus magyarul'));
+	echo $this->Form->input('title_eng', array('label' => 'Titulus angolul'));
+	echo $this->Form->input('description_hun', array('label' => 'Leírás magyarul'));
+	echo $this->Form->input('description_eng', array('label' => 'Leírás angolul'));
+	echo $this->Form->input('image', array('type' => 'file', 'label' => 'Kép'));
 	if(!empty($this->request->data['Collegue']['image'])){
 		echo $this->Html->image($this->request->data['Collegue']['image']);
 	}
