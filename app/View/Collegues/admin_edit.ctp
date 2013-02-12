@@ -13,7 +13,7 @@
 	echo $this->Form->input('title_eng', array('label' => 'Titulus angolul'));
 	echo $this->Form->input('description_hun', array('label' => 'Leírás magyarul'));
 	echo $this->Form->input('description_eng', array('label' => 'Leírás angolul'));
-	echo $this->Form->input('image', array('type' => 'file', 'label' => 'Kép'));
+	echo $this->Form->input('image', array('type' => 'file', 'label' => 'Kép (~300px széles)'));
 	if(!empty($this->request->data['Collegue']['image'])){
 		echo $this->Html->image($this->request->data['Collegue']['image']);
 	}
