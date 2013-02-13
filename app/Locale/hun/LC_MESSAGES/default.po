@@ -47,6 +47,9 @@ msgstr "Mobil"
 msgid "email"
 msgstr "Email"
 
+msgid "address_t"
+msgstr "1053 Budapest, Papnövelde utca 8."
+
 #Url
 
 msgid "specialization_url"

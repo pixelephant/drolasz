@@ -19,7 +19,7 @@ msgid "home"
 msgstr "Home"
 
 msgid "specialization"
-msgstr "Specialization"
+msgstr "Our fields of specialization"
 
 msgid "collegues"
 msgstr "Collegues"
@@ -46,6 +46,9 @@ msgstr "Mobile"
 
 msgid "email"
 msgstr "Email"
+
+msgid "address_t"
+msgstr "1053 Budapest, Papnövelde street 8."
 
 #Url
 
