@@ -19,7 +19,7 @@ msgid "home"
 msgstr "Home"
 
 msgid "specialization"
-msgstr "Our fields of specialization"
+msgstr "Specialization"
 
 msgid "collegues"
 msgstr "Collegues"
