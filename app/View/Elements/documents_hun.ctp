@@ -1,10 +1,5 @@
-<a href="<?php echo $this->webroot; ?>docs/azonosito_belfold.doc">Azonosítólap<span> / belföldi</span></a>
-<a href="<?php echo $this->webroot; ?>docs/azonosito_kulfold.doc">Azonosítólap<span> / külföldi</span></a>
-<a href="<?php echo $this->webroot; ?>docs/advet_ingatlan.doc">Adatlap<span> ingatlan adásvételi szerződés megkötéséhez</span></a>
-<a href="<?php echo $this->webroot; ?>docs/kft_alapitas.doc">Korlátolt felelősségű társaság<span> alapításhoz szükséges adatok</span></a>
-<a href="<?php echo $this->webroot; ?>docs/bt_alapitas.doc">Betéti társaság<span> alapításhoz szükséges adatok, információk</span></a>
-<a href="<?php echo $this->webroot; ?>docs/zrt_alapitas.doc">Zártkörűen működő részvénytársaság<span> alapításhoz szükséges adatok</span></a>
-<a href="<?php echo $this->webroot; ?>docs/bt_minta.doc">Betéti társaság<span> szerződésmintája</span></a>
-<a href="<?php echo $this->webroot; ?>docs/egyszem_kft_alapitas.doc">Egyszemélyes korlátolt felelősségű társaság<span> alapító okirat mintája</span></a>
-<a href="<?php echo $this->webroot; ?>docs/kft_minta.doc">Korlátolt felelősségű társaság<span> alapító okirat mintája</span></a>
-<a href="<?php echo $this->webroot; ?>docs/zrt_minta.doc">Zártkörűen működő részvénytársaság<span> alapszabálymintája</span></a>
+<?php 
+	foreach($documents as $document){
+		echo $this->Html->link($document['Document']['name_hun'] . '<span> ' . $document['Document']['description_hun'] . '</span>', '/files/' . $document['Document']['file_hun'], array('escape' => false));
+	} 
+?>

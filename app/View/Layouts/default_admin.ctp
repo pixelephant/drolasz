@@ -33,7 +33,7 @@
                         <li><a href="#">Szakterület</a></li>
                         <li><?php echo $this->Html->link('Kollégák', '/admin'); ?></li>
                         <li><a href="#">Kapcsolat</a></li>
-                        <li><a href="#">Dokumentumok</a></li>
+                        <li><?php echo $this->Html->link('Dokumentumok', '/admin/dokumentumok'); ?></li>
                     </ul>
                 </nav>
             </div>

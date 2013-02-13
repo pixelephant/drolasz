@@ -36,6 +36,13 @@
 	Router::connect('/admin/collegues/edit/:id', array('controller' => 'collegues', 'action' => 'edit', 'admin' => true));
 	Router::connect('/admin/collegues/edit', array('controller' => 'collegues', 'action' => 'edit', 'admin' => true));
 	Router::connect('/admin/collegues/add', array('controller' => 'collegues', 'action' => 'add', 'admin' => true));
+	
+	Router::connect('/admin/documents/delete/:id', array('controller' => 'documents', 'action' => 'delete', 'admin' => true));
+	Router::connect('/admin/documents/edit/:id', array('controller' => 'documents', 'action' => 'edit', 'admin' => true));
+	Router::connect('/admin/documents/edit', array('controller' => 'documents', 'action' => 'edit', 'admin' => true));
+	Router::connect('/admin/documents/add', array('controller' => 'documents', 'action' => 'add', 'admin' => true));
+	Router::connect('/admin/dokumentumok', array('controller' => 'documents', 'action' => 'index', 'admin' => true));
+	
 	Router::connect('/en', array('controller' => 'pages', 'action' => 'display', 'en', 'home'));
 	Router::connect('/en/*', array('controller' => 'pages', 'action' => 'display', 'en'));
 	Router::connect('/*', array('controller' => 'pages', 'action' => 'display'));

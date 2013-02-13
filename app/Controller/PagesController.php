@@ -10,7 +10,7 @@ public function beforeFilter() {
 }
 
 	public $name = 'Pages';
-	public $uses = array('Collegue');
+	public $uses = array('Collegue', 'Document');
 
 
 	public function display() {
@@ -50,6 +50,9 @@ public function beforeFilter() {
 			$page = $path[0];
 			if($page == 'collegues'){
 				$this->set('collegues', $this->Collegue->find('all', array('order' => 'position')));
+			}
+			if($page == 'documents'){
+				$this->set('documents', $this->Document->find('all'));	
 			}
 		}
 
