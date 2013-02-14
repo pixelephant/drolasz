@@ -516,11 +516,11 @@ text-align: center;
         margin-top: 5em;
     }
 
-    #home #logo,#contact #logo{
+    #home #logo,#contact #logo,#specialization #logo{
         float: right;
     }
 
-    #specialization #logo,#collegues #logo,#collegue #logo,#documents #logo{
+    #collegues #logo,#collegue #logo,#documents #logo{
         float: left;
     }
 
