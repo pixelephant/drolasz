@@ -19,8 +19,12 @@ class DocumentsController extends AppController {
 		$document = $this->Document->find('first', array('conditions' => array('Document.id' => $params['id'])));
 		$this->Document->delete($params['id']);
 		
-		unlink('files/' . $document['Document']['file_hun']);
-		unlink('files/' . $document['Document']['file_eng']);
+		if(file_exists('files/' . $document['Document']['file_hun'])){
+			unlink('files/' . $document['Document']['file_hun']);
+		}
+		if(file_exists('files/' . $document['Document']['file_eng'])){
+			unlink('files/' . $document['Document']['file_eng']);
+		}
 		$this->redirect('/admin/dokumentumok');
 	}
 
