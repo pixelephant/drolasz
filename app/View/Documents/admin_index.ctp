@@ -7,7 +7,7 @@
 		?>
 			<div class="admin-a">
 				<h3><?php echo $document['Document']['name_hun']; ?></h3>
-				<h4><?php echo $document['Document']['name_eng']; ?></h4>
+				<h4><?php echo $document['Document']['description_hun']; ?></h4>
 				<?php echo $this->Html->link('Szerkeszt', '/admin/documents/edit/' . $document['Document']['id'], array("class"=>"admin")); ?>
 				<form action="<?php echo $this->Html->url('/admin/documents/delete/'); ?><?php echo $document['Document']['id']; ?>" name="post_<?php echo $document['Document']['id']; ?>" id="post_<?php echo $document['Document']['id']; ?>" style="display:none;" method="post">
 							<input type="hidden" name="_method" value="POST"></form>
