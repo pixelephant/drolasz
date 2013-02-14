@@ -364,7 +364,7 @@ text-align: center;
 #collegue #main img{
     margin: 0 auto;
     display: block;
-    max-width: 100%;
+    max-width: 300px;
 }
 
 #collegue #main h3{
